@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="John Doe"><meta name="renderer" content="webkit"><meta name="copyright" content="John Doe"><meta name="keywords" content="Hexo"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>md写作练习1 · 轩轩的小屋</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/huangren.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/yellowman.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">xing2357</div><div class="profile-signature">曾经沧海难为水</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span><span><a href="//github.com/" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">xing2357</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">md写作练习1</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2020-11-06</span></span></div><div class="post-intro-read"><span> Word count: <span class="post-count">710</span> | Reading time: <span class="post-count">2</span>min</span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h3 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h3><p> 1.gitlab中的备份<br> 2.gitlab如何实现备份<br> 3.定时备份</p>
+<h1 id="1-gitlab中的备份"><a href="#1-gitlab中的备份" class="headerlink" title="1.gitlab中的备份"></a>1.gitlab中的备份</h1><p>  1.gitlab中提供的备份机制，不会备份配置文件，所以需要手动备份配置目录和相关文件。备份指令之所以不备份配置文件，是因为数据库中包含一些加密的信息。加密信息的密钥存放在备份目录下，如果放在一个地方，会违背信息加密的安全目的。<br>  2.一般来说，对于使用rpm包安装的Gitlab，所有的默认配置都在/etc/gitlab目录下，其中最重要的是/etc/gitlab/gitlab.rb和/etc/gitlab/gitlab-secrets.json这两个文件。gitlab.rb是主配置文件，包含外部url、仓库目录、备份目录等重要配置。gitlab-secrets.json包含数据库的加密密钥、双重认证的密钥、gitlab CI的密钥等加密信息</p>
+<h1 id="2-Gitlab如何实现备份"><a href="#2-Gitlab如何实现备份" class="headerlink" title="2.Gitlab如何实现备份"></a>2.Gitlab如何实现备份</h1><p>  1.备份/etc/gitlab/gitlab.rb</p>
+<ul>
+<li>backup_path表示备份的目录,默认是/var/opt/gitlab/backups</li>
+<li>backup_archive_permissions是gitlab备份生成的tar格式的压缩包，默认git:git用户和群组，默认文件权限是0600，可以防止其他系统用户获取gitlab的数据。如果要修稿备份包的权限，可以修改改参数，比如，改成0644即具有可读的权限。</li>
+<li>backup_keep_time表示备份的保留时间。如果备份压缩包太多，会导致磁盘空间一直被占用，所以可以给备份包设置最长的保留时间，每次美分任务是会把超过保留时间的就备份包删除，备份的保留时间是604800s，即7天。具体设置如下：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
+编辑gitlab主配置文件，增加如下配置信息，保存并退出。<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gitlab_rails[&#x27;backup_path&#x27;] = &quot;/mnt/gitlab/backup&quot;</span><br><span class="line">gitlab_rails[&#x27;backup_archive_permissions&#x27;] = 0644</span><br><span class="line">gitlab_rails[&#x27;backup_keep_time&#x27;] = 604800</span><br></pre></td></tr></table></figure>
+picture!不会</li>
+</ul>
+<p>  2.中心加载配置信息，使其生效<br>  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure><br>  3.执行备份指令<br>  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure><br>  图片不会搞<del>~</del></p>
+<p>  4.查看备份目录下新的文件<br>  备份文件采用tar包格式,文件命名规则是EPOCH——YYY_MM_DD_gitlab版本号_gitlab_backup.tar，可以看出此命名规则会带上时间戳和gitlab的版本号信息。<br>  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al /mnt/gitlab/backup/</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-定时备份"><a href="#3-定时备份" class="headerlink" title="3.定时备份"></a>3.定时备份</h1><p>定时备份的实现是使用Linux系统中的crontab任务进行的，具体实现如下:<br> 1.通过命令创建crontab任务。每天凌晨2点执行一次备份任务(根据自己需求设定定是任务的执行时间和次数)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 执行如下命令</span><br><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+<p> 新建定时任务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 新建定时任务</span><br><span class="line">0 2 * * * &#x2F;opt&#x2F;gitlab&#x2F;bin&#x2F;gitlab-rake girlab:backup:create CRON&#x3D;1</span><br></pre></td></tr></table></figure>
+<p> 查看定时任务列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+<p> 图片<br> 至此，已完成gitlab的备份工作</p>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="https://xing2357.github.io">John Doe</a></p><p> <span>Link:  </span><a href="https://xing2357.github.io/2020/11/06/md%E5%86%99%E4%BD%9C%E7%BB%83%E4%B9%A01/">https://xing2357.github.io/2020/11/06/md%E5%86%99%E4%BD%9C%E7%BB%83%E4%B9%A01/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="nextSlogan" href="/2020/11/05/%E7%BB%83%E4%B9%A0%E7%BB%83%E4%B9%A0/" title="练习一下哈哈哈"><span>NextPost ></span><br><span class="nextTitle">练习一下哈哈哈</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a target="_blank" rel="noopener" href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">文章目录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-gitlab%E4%B8%AD%E7%9A%84%E5%A4%87%E4%BB%BD"><span class="toc-number"></span> <span class="toc-text">1.gitlab中的备份</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Gitlab%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%87%E4%BB%BD"><span class="toc-number"></span> <span class="toc-text">2.Gitlab如何实现备份</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD"><span class="toc-number"></span> <span class="toc-text">3.定时备份</span></a></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
